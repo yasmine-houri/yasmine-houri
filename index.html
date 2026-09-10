@@ -83,23 +83,15 @@
     overflow-y: auto;
   }
 
-  .avatar {
-    width: 76px;
-    height: 76px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: var(--paper);
-    font-family: "Archivo", sans-serif;
-    font-weight: 600;
-    font-size: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-    /* Replace this div with:
-       <img src="your-photo.jpg" alt="Your Name" class="avatar" style="object-fit:cover;">
-       once you have a headshot. Until then it shows your initials. */
-  }
+.avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 18px;
+}
+
 
   .sidebar h1 {
     font-size: 24px;
@@ -339,8 +331,7 @@
 <div class="layout">
 
   <aside class="sidebar">
-    <div class="avatar" aria-hidden="true">YN</div>
-    <!-- ^ swap for: <img src="photo.jpg" alt="Your Name" class="avatar" style="object-fit:cover;"> -->
+    <img src="Houri-Yasmine-ABP_20260809_5486_w-vignette_copy.jpg" alt="Yasmine Houri" class="avatar" style="object-fit:cover;">
 
     <h1>Yasmine Houri</h1>
     <p class="role">Ph.D. Candidate, CREST Sociology<br><a href="[https://crest.science/user/yasmine-houri/]">Institut Polytechnique de Paris</a></p>
