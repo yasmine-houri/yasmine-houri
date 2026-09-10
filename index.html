@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — PhD Candidate, Your University</title>
+<meta name="description" content="Personal website of Your Name, PhD candidate in [Field] at [University].">
+
+<!-- ============================================================
+  HOW TO USE THIS TEMPLATE
+  Search for text in [square brackets] and replace it with your
+  own content. Everything else (layout, CSS, structure) can be
+  left as is, or adjusted to taste.
+============================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #f5f5f1;
+    --ink: #201f1c;
+    --ink-soft: #5c5a53;
+    --rule: #dbd8cd;
+    --accent: #2f5d5a;
+    --accent-soft: #e4eae7;
+    --card: #ffffff;
+    --dot-inactive: #d7d4c9;
+    --sidebar-width: 272px;
+    --content-max: 620px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Newsreader", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  a:hover { text-decoration-thickness: 2px; }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Layout ---------- */
+
+  .layout {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /* ---------- Sidebar ---------- */
+
+  .sidebar {
+    flex: 0 0 var(--sidebar-width);
+    width: var(--sidebar-width);
+    padding: 56px 32px 40px 40px;
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--paper);
+    font-family: "Archivo", sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    /* Replace this div with:
+       <img src="your-photo.jpg" alt="Your Name" class="avatar" style="object-fit:cover;">
+       once you have a headshot. Until then it shows your initials. */
+  }
+
+  .sidebar h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .sidebar .role {
+    font-family: "Archivo", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin: 0 0 18px;
+    line-height: 1.5;
+  }
+
+  .sidebar .role a { color: var(--ink-soft); }
+
+  .sidebar .lede {
+    font-size: 15.5px;
+    line-height: 1.55;
+    margin: 0 0 20px;
+  }
+
+  .sidebar .links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: "Archivo", sans-serif;
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  /* ---------- Nav card ---------- */
+
+  .nav-card {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 8px 24px rgba(32, 31, 28, 0.07);
+  }
+
+  .nav-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .nav-card a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-family: "Archivo", sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+
+  .nav-card a:hover,
+  .nav-card a:focus-visible { color: var(--accent); }
+
+  .nav-card .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--dot-inactive);
+    flex-shrink: 0;
+  }
+
+  .nav-card a.active {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .nav-card a.active .dot { background: var(--accent); }
+
+  /* ---------- Main content ---------- */
+
+  main {
+    flex: 1;
+    min-width: 0;
+    padding: 56px 32px 80px;
+  }
+
+  main .content {
+    max-width: var(--content-max);
+  }
+
+  section {
+    padding: 40px 0;
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 24px;
+  }
+
+  section:first-of-type { padding-top: 0; border-top: none; }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0 0 16px;
+  }
+
+  section p { margin: 0 0 14px; }
+  section p:last-child { margin-bottom: 0; }
+
+  /* ---------- Publications (with thumbnail) ---------- */
+
+  .pub-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pub-list li {
+    display: grid;
+    grid-template-columns: 86px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .pub-list li:first-child { border-top: none; padding-top: 0; }
+
+  .pub-thumb {
+    width: 86px;
+    aspect-ratio: 0.77;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    box-shadow: 0 1px 2px rgba(32, 31, 28, 0.08);
+    padding: 8px 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* Placeholder "page" look. Replace with:
+       <img src="thumbs/paper1.png" alt="First page of [Title]" class="pub-thumb" style="object-fit:cover;">
+       once you have real screenshots of your papers' first pages. */
+  }
+
+  .pub-thumb span { display: block; height: 2px; background: var(--rule); }
+  .pub-thumb span:nth-child(1) { width: 70%; margin-bottom: 3px; }
+  .pub-thumb span:nth-child(5) { width: 60%; }
+
+  .pub-year {
+    font-family: "Archivo", sans-serif;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+
+  .pub-title { font-weight: 500; margin: 2px 0 4px; }
+
+  .pub-meta {
+    font-family: "Archivo", sans-serif;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Talks / Teaching lists ---------- */
+
+  .plain-list { list-style: none; margin: 0; padding: 0; }
+
+  .plain-list li {
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .plain-list li:first-child { border-top: none; padding-top: 0; }
+
+  .item-title { font-weight: 500; margin-bottom: 2px; }
+
+  .item-meta {
+    font-family: "Archivo", sans-serif;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- CV ---------- */
+
+  .cv-download {
+    display: inline-block;
+    font-family: "Archivo", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--accent-soft);
+    border: 1px solid var(--rule);
+    padding: 10px 18px;
+    text-decoration: none;
+  }
+
+  .cv-download:hover { border-color: var(--accent); }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    padding: 0 0 56px;
+    font-family: "Archivo", sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Mobile ---------- */
+
+  @media (max-width: 860px) {
+    .layout { flex-direction: column; }
+
+    .sidebar {
+      position: static;
+      width: 100%;
+      max-height: none;
+      padding: 32px 24px 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-card ul { flex-direction: row; flex-wrap: wrap; gap: 4px; }
+    .nav-card a { padding: 8px 10px; }
+
+    main { padding: 32px 24px 64px; }
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 17px; }
+    .sidebar h1 { font-size: 22px; }
+    .pub-list li { grid-template-columns: 64px 1fr; gap: 14px; }
+    .pub-thumb { width: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="avatar" aria-hidden="true">YN</div>
+    <!-- ^ swap for: <img src="photo.jpg" alt="Your Name" class="avatar" style="object-fit:cover;"> -->
+
+    <h1>[Your Name]</h1>
+    <p class="role">PhD Candidate, [Department]<br><a href="[UNIVERSITY_PROFILE_URL]">[University Name]</a></p>
+
+    <p class="lede">
+      [One or two sentences on what you work on, e.g. "I study X in the
+      context of Y, using methods from Z." Keep this short — save detail
+      for About.]
+    </p>
+
+    <div class="links">
+      <a href="mailto:[YOUR_EMAIL]">Email</a>
+      <a href="[LINKEDIN_URL]">LinkedIn</a>
+    </div>
+
+    <nav class="nav-card" aria-label="Section navigation">
+      <ul>
+        <li><a href="#about" class="nav-link active" data-section="about"><span class="dot"></span>About</a></li>
+        <li><a href="#publications" class="nav-link" data-section="publications"><span class="dot"></span>Publications</a></li>
+        <li><a href="#talks" class="nav-link" data-section="talks"><span class="dot"></span>Talks</a></li>
+        <li><a href="#teaching" class="nav-link" data-section="teaching"><span class="dot"></span>Teaching</a></li>
+        <li><a href="#cv" class="nav-link" data-section="cv"><span class="dot"></span>CV</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="content">
+
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          [A short biographical paragraph. Where did you study before your
+          PhD? What's your academic path so far? You can also mention
+          interests outside of research here — this is the paragraph
+          readers use to get a sense of you as a person, not just a CV
+          entry.]
+        </p>
+        <p>
+          [Optional second paragraph — current focus, what you're excited
+          about, or what you're looking for next, e.g. postdoc / industry
+          positions.]
+        </p>
+      </section>
+
+      <section id="publications">
+        <h2>Publications</h2>
+        <ul class="pub-list">
+          <li>
+            <div class="pub-thumb" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div>
+              <div class="pub-year">[2026]</div>
+              <div class="pub-title">[Paper Title Goes Here]</div>
+              <div class="pub-meta">[Author list]. <em>[Journal / Conference name]</em>. <a href="[LINK]">PDF</a> · <a href="[LINK]">Code</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="pub-thumb" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div>
+              <div class="pub-year">[2025]</div>
+              <div class="pub-title">[Another Paper Title]</div>
+              <div class="pub-meta">[Author list]. <em>[Journal / Conference name]</em>. <a href="[LINK]">PDF</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="pub-thumb" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div>
+              <div class="pub-year">[2024]</div>
+              <div class="pub-title">[Working Paper / Preprint Title]</div>
+              <div class="pub-meta">[Author list]. Working paper. <a href="[LINK]">PDF</a></div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="talks">
+        <h2>Talks</h2>
+        <ul class="plain-list">
+          <li>
+            <div class="item-title">[Talk title]</div>
+            <div class="item-meta">[Conference / seminar name], [City] — [Month Year]</div>
+          </li>
+          <li>
+            <div class="item-title">[Talk title]</div>
+            <div class="item-meta">[Conference / seminar name], [City] — [Month Year]</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="teaching">
+        <h2>Teaching</h2>
+        <ul class="plain-list">
+          <li>
+            <div class="item-title">[Course name]</div>
+            <div class="item-meta">[Teaching Assistant / Instructor], [University] — [Term Year]</div>
+          </li>
+          <li>
+            <div class="item-title">[Course name]</div>
+            <div class="item-meta">[Teaching Assistant / Instructor], [University] — [Term Year]</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="cv">
+        <h2>CV</h2>
+        <p>Download my full curriculum vitae for education, publications, teaching, and service details.</p>
+        <a class="cv-download" href="[PATH_TO_YOUR_CV.pdf]">Download CV (PDF)</a>
+      </section>
+
+      <footer>© 2026 [Your Name]</footer>
+
+    </div>
+  </main>
+
+</div>
+
+<script>
+  // Highlights the nav item matching the section currently in view.
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+    var sections = links
+      .map(function (link) { return document.getElementById(link.dataset.section); })
+      .filter(Boolean);
+
+    if (!('IntersectionObserver' in window) || sections.length === 0) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          link.classList.toggle('active', link.dataset.section === entry.target.id);
+        });
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+    sections.forEach(function (section) { observer.observe(section); });
+  })();
+</script>
+
+</body>
+</html>
