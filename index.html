@@ -73,15 +73,18 @@
 
   /* ---------- Sidebar ---------- */
 
-  .sidebar {
-    flex: 0 0 var(--sidebar-width);
-    width: var(--sidebar-width);
-    padding: 56px 32px 40px 40px;
-    position: sticky;
-    top: 0;
-    max-height: 100vh;
-    overflow-y: auto;
-  }
+.sidebar {
+  flex: 0 0 var(--sidebar-width);
+  width: var(--sidebar-width);
+  padding: 40px 28px 24px 32px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;   /* add this line */
+}
 
 .avatar {
   width: 120px;      /* was 60px */
@@ -124,14 +127,20 @@
     margin: 0 0 20px;
   }
 
-  .sidebar .links {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-family: "Archivo", sans-serif;
-    font-size: 14px;
-    margin-bottom: 28px;
-  }
+.sidebar .links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Archivo", sans-serif;
+  font-size: 13.5px;
+  margin-bottom: 20px;
+}
+
+.sidebar .links .sep {
+  color: var(--dot-inactive);
+}
 
   /* ---------- Nav card ---------- */
 
@@ -351,6 +360,7 @@
 
     <div class="links">
       <a href="mailto:[yasmine.houri@ensae.fr]">Email</a>
+      <span class="sep">·</span>
       <a href="[https://www.linkedin.com/in/yasmine-houri-67a8b4290/]">LinkedIn</a>
     </div>
 
