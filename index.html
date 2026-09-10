@@ -84,12 +84,19 @@
   }
 
 .avatar {
-  width: 76px;
-  height: 76px;
+  width: 120px;      /* was 60px */
+  height: 120px;      /* was 60px */
   border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin-bottom: 18px;
+  background: var(--accent);
+  color: var(--paper);
+  font-family: "Archivo", sans-serif;
+  font-weight: 600;
+  font-size: 40px;     /* was 21px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;   /* was: margin-bottom: 14px; — the "0 auto" centers it */
+  flex-shrink: 0;
 }
 
 
